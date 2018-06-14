@@ -1,0 +1,19 @@
+<h1>Product Details</h1>
+<span *ngIf = 'product'>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>{{product.name}}</td>
+    </tr>
+    <tr>
+      <td>Qty</td>
+      <td>{{product.qty}}</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>{{product.price}}</td>
+    </tr>
+  </table>
+  <button (click) = "onRedirect()">Back</button>
+  <button (click) = "onDelete(product._id)">Delete</button>
+</span>

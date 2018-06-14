@@ -1,0 +1,35 @@
+<h1> New Product</h1>
+<form (submit) = 'onSubmit(formData)' #formData = 'ngForm'>
+    <span *ngIf = 'name.errors'>
+        <span id = 'err'*ngIf = 'name.errors.required'>Products must contain a Name<br></span>
+        <span id = 'err'*ngIf = 'name.errors.minlength'>Product Name length must be at least 3 characters<br></span>
+      </span>
+      <span *ngIf = 'qty.errors'>
+          <span id = 'err' *ngIf = 'qty.errors.required'>Products must contain a Quantity<br></span>
+          <span id = 'err' *ngIf = 'qty.errors.pattern'>product quantity must be greater than 0<br></span>
+        </span>
+        <span *ngIf = 'price.errors'>
+            <span id = 'err'*ngIf = 'price.errors.required'>Products must contain a Price<br></span>
+            <span id = 'err'*ngIf = 'price.errors.pattern'>Product Price must be greater than 0<br></span>    
+          </span>
+        <br>
+        <br>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input type = 'text' name = 'name' required minlength="3" [(ngModel)] = 'product.name' #name = 'ngModel'></td>
+    </tr>
+    <tr>
+      <td>Qty</td>
+      <td><input type = 'number' name = 'qty' required  pattern="^0*[1-9]\d*$" [(ngModel)]= 'product.qty' #qty = 'ngModel'></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input type = 'number' name = 'price' step="0.01" required   pattern="^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$" [(ngModel)] = 'product.price' #price = 'ngModel'></td>
+    </tr>
+    <tr>
+      <td><button type = 'button' (click) = 'onReset(formData)'>Reset</button></td>
+      <td><button [disabled] = 'formData.invalid' type ='submit'>Create</button></td>
+    </tr>
+  </table>
+</form>

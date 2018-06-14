@@ -1,0 +1,23 @@
+<h1>Product List</h1>
+<span *ngIf = 'products'>
+  <button (click) = "onRedirect()">Add A Product</button>
+  <br>
+  <br>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </thead>
+    <tr *ngFor = 'let product of products'>
+        <td>{{product._id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.qty}}</td>
+        <td>{{product.price}}</td>
+        <td><button id = 'edit' (click) = 'onEdit(product._id)'>Edit</button><button id = 'space' (click) = 'onDetails(product._id)'>details</button></td>
+    </tr>
+  </table>
+
+</span>
